@@ -1,22 +1,17 @@
-ifneq ($(KERNELRELEASE),)
+TARGET	= ax_usb_nic
+KDIR	:= $(KERNEL_SRC)
+PWD	= $(shell pwd)
 
-export top := $(src)
 
-export CONFIG_AX88179A=m
+obj-m := $(TARGET).o
+$(TARGET)-objs := ax_main.o ax88179_178a.o ax88179a_772d.o
 
-obj-y += drivers/net/usb/
-
-else
-
-SRC := $(shell pwd)
 
 all:
-	$(MAKE) -C $(KERNEL_SRC) M=$(SRC)
+	$(MAKE) -C $(KDIR) M=$(PWD)
 
 modules_install:
-	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
+	$(MAKE) -C $(KDIR) M=$(PWD) modules_install
 
 clean:
-	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) clean
-
-endif
+	rm -rf *_programmer *_ieee axcmd .tmp_versions
