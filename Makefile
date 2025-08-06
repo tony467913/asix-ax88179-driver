@@ -14,4 +14,4 @@ modules_install:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules_install
 
 clean:
-	rm -rf *_programmer *_ieee axcmd .tmp_versions
+	rm -rf *_programmer *_ieee .tmp_versions
