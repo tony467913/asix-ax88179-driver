@@ -10,7 +10,7 @@ $ cd iot-yocto
 
 step 2:
 
-$ devtool add ax88179 https:/github.com/tony467913/asix-ax88179-driver.git -B main
+$ devtool add ax88179 https://github.com/tony467913/asix-ax88179-driver.git -B main
 
 
 step 3:
